@@ -1,0 +1,22 @@
+{
+	"vnd" : {
+		"name": "Vietnamese Dong",
+		"rate": 1,
+		"id": 2
+	},
+   "usd" : {
+      "name" : "US Dollar",
+	  "rate" : 22297.50,
+	  "id": 2
+   },
+   "yen" : {
+    	"name" : "Japanese Yen",
+	  	"rate" : 197.21, 	
+	  	"id": 3
+   },
+   "pound" : {
+    	"name" : "British Pound",
+	  	"rate" : 31737.15,
+	  	"id": 4
+   }
+}
