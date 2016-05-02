@@ -8,12 +8,10 @@ Như tên gọi của mình, SMILE ALARM là 1 ứng dụng dùng để báo th�
 
 Danh sách tính năng chính của ứng dụng SMILE ALARM
 
-1. Người dùng có thể đặt báo thức.
+1. Người dùng có thể đặt báo thức. 
 
-2. Người dùng có thể sử dụng những bài hát có sẵn để làm nhạc chuông.
+2. Người dùng có thể sử dụng những bài hát có sẵn để làm nhạc chuông hoặc tự chọn nhạc chuông.
 
-3. Người dùng cũng có thể tự tạo một bản nhạc báo thức của riêng mình.
-
-4. Ứng dụng còn có dự báo thời tiết trong ngày, đưa ra lời khuyên và tử vi.
+3. Ứng dụng còn có dự báo thời tiết trong ngày, đưa ra lời khuyên trước khi ngủ  và nhắc nhở những việc bạn dự định làm trong ngày.
 
 Thật thú vị đúng không, hãy chờ đợi chúng tôi mang đến sự khác biệt.
