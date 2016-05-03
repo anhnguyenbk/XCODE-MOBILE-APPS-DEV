@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:id="@+id/tune_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:clickable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Tune"
+            android:textColor="@color/back_text"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/tune_play_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="7dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="7dp"
+            android:background="@color/primary"
+            android:clickable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/play_tune"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+
+</LinearLayout>

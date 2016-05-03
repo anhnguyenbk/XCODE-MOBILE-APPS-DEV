@@ -1,0 +1,92 @@
+<resources>
+    <string name="app_name">SmileAlarm</string>
+
+    <!-- ALARM POINT LIST -->
+    <string name="btn_VAPL_Remove">Remove All Selected</string>
+    <string name="btn_VAPL_Connect">Connect to Your Schedule</string>
+
+    <string name="action_vapl_menu">More Actions</string>
+    <string name="action_create_rising_plan">Create Rising Plan</string>
+    <string name="action_modify_recommended_tunes">Modify Your Tune List</string>
+
+    <string name="title_activity_view_alarm_point_list">Your Schedule</string>
+    <string name="title_activity_view_rising_plan">Your Rising Plan</string>
+
+    <!-- NOTIFICATION OR CONFIRMATION -->
+    <string name="dialog_title_confirmation">Confirmation Dialog</string>
+    <string name="dialog_title_result">Result Dialog</string>
+    <string name="no">No</string>
+    <string name="confirmation_remove">\nAre you sure to remove all those alarm points?\n</string>
+    <string name="confirmation_connect">\nAre you sure to connect to your schedule?\n\nSome alarm points you already set before might be replaced\n</string>
+    <string name="confirmation_create_rising_plan">\nIt seems to be the first you use our app.\nWould you like to use our Create Rising Plan tool?\n</string>
+    <string name="notification_connect_successfully">\nCongratulations!\n\nConnect Successfully!\n</string>
+    <string name="notification_connect_error">\nSorry!\n\nThere are some problem when connecting!\n</string>
+    <string name="notification_apInfo_input_time_error">\nSorry!\n\nThe time you set needs to later than current time!\n</string>
+
+    <!-- Create Rising Plan -->
+    <string name="title_activity_create_rising_plan">Create Your Rising Plan</string>
+    <string name="tv_CRP_AVG_Time">Your Average Waking Time</string>
+    <string name="hint_CRP_AVG_Time">Your Average Waking Time is the time you often get up</string>
+    <string name="tv_CRP_EXP_Time">Your Expected Waking Time</string>
+    <string name="hint_CRP_EXP_Time">Your Expected Waking Time is the time you want to get up everyday in the future</string>
+    <string name="tv_CRP_Start_Date">Start Date</string>
+    <string name="hint_CRP_Start_Date">Your Start Date is the date you want to start your plan</string>
+    <string name="btn_CRP_Plan_It">Plan it</string>
+    <string name="not_ExpTime">Expected Time have to be between 5:00 AM and 8:00 AM</string>
+    <string name="not_AvgTime">Average Waking Time have to later than Expected Waking Time</string>
+    <string name="not_AvgExpTooLong">The duration between Average and Expected Time need to be shorter than 12 hours 55 minutes</string>
+    <string name="not_AvgExpTooShort">The duration between Average and Expected Time need to be longer than 20 minutes</string>
+    <string name="not_StrDate">Start Date have to be after the day after tomorrow</string>
+    <string name="dialog_title_error">Error</string>
+
+    <!-- Alarm Point Info Management -->
+    <string name="title_activity_alarm_point_info_management">Alarm Point Info Management Activity</string>
+    <string name="date">Date</string>
+    <string name="time_morning">Time in the morning</string>
+    <string name="time_evening">Time in the evening</string>
+    <string name="tune">Alarm tune</string>
+    <string name="increasing_vol">Increasing volume</string>
+    <string name="repeat">Repeat</string>
+    <string name="_protected">Protected</string>
+    <string name="alarm_save">Save</string>
+    <string name="alarm_remove">Remove</string>
+
+    <!-- Recommended Tune List -->
+    <string name="title_activity_recommended_tunes">Recommended Tunes List</string>
+    <string name="choose_tune_from">Choose tune from:</string>
+    <string name="recommend_list">Recommend list</string>
+    <string name="my_tune">My Tune</string>
+    <string name="play_tune">Play</string>
+    <string name="stop_tune">Stop</string>
+    <string name="nodata">No Data</string>
+    <string name="add_alarm_title">Add new alarm</string>
+    <string name="alarm_info_title">Alarm Point Info</string>
+
+    <!-- Game -->
+    <string name="title_activity_game">Play game</string>
+
+    <!-- View CheckList -->
+    <string name="title_vft_checklist">Very First Things Check List</string>
+    <string name="title_vlt_checklist">Very Last Things Check List</string>
+    <string name="turn_off_alarm">Turn off Alarm</string>
+    <string name="create_todo_list">Create To-do List</string>
+
+    <!-- Todo List -->
+    <string name="title_activity_create_todo_list">Create To-do List</string>
+    <string name="title_activity_view_todo_list">To-do List</string>
+    <string name="title_activity_add_new_task">Add New Task</string>
+    <string name="save_todo_list">Save</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_add">Add action</string>
+    <string name="add_task">Add</string>
+    <string name="view_vft_checklist">View Very First Things Check List</string>
+
+    <!-- Smile Detection -->
+    <string name="title_activity_smile">Smile detection</string>
+    <string name="ok">OK</string>
+    <string name="permission_camera_rationale">Access to the camera is needed for detection</string>
+    <string name="no_camera_permission">This application cannot run because it does not have the camera permission.  The application will now exit.</string>
+    <string name="low_storage_error">Face detector dependencies cannot be downloaded due to low device storage</string>
+
+    <string name="finish">FINISH</string>
+</resources>

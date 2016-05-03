@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.xcode.mobile.smilealarm">
+
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
+
+        <meta-data
+            android:name="com.google.android.gms.vision.DEPENDENCIES"
+            android:value="face" />
+
+        <activity
+            android:name=".alarmpointmanager.ViewAlarmPointListActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".alarmpointmanager.ViewRisingPlanActivity"
+            android:label="@string/title_activity_view_rising_plan"
+            android:uiOptions="splitActionBarWhenNarrow"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".alarmpointmanager.AlarmPointInfoManagementActivity"
+            android:label="@string/title_activity_alarm_point_info_management"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".tunemanager.RecommendedTunesActivity"
+            android:label="@string/title_activity_recommended_tunes"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".alarmpointmanager.CreateRisingPlanActivity"
+            android:label="@string/title_activity_create_rising_plan"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".gamemanager.GameActivity"
+            android:excludeFromRecents="true"
+            android:label="@string/title_activity_game"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".AlarmActivity"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".smiledetectmanager.FaceTrackerActivity"
+            android:excludeFromRecents="true"
+            android:label="@string/title_activity_smile"
+            android:screenOrientation="landscape"/>
+        <activity
+            android:name=".listmanager.ViewVFTCheckListActivity"
+            android:label="@string/title_vft_checklist"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".listmanager.ViewVLTCheckListActivity"
+            android:excludeFromRecents="true"
+            android:label="@string/title_vlt_checklist"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".listmanager.CreateToDoListActivity"
+            android:label="@string/title_activity_create_todo_list"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".listmanager.ViewToDoListActivity"
+            android:label="@string/title_activity_view_todo_list"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".listmanager.AddTaskActivity"
+            android:label="@string/title_activity_add_new_task"
+            android:screenOrientation="portrait"/>
+
+        <receiver android:name=".RingOffReceiver" />
+        <receiver
+            android:name=".RingOffBootReceiver"
+            android:enabled="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

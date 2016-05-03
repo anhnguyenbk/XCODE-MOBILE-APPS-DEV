@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <group android:checkableBehavior="all">
+        <item
+            android:id="@+id/action_vapl_create_rising_plan"
+            android:icon="@mipmap/ic_action_location_found_dark"
+            android:title="@string/action_create_rising_plan" />
+        <item
+            android:id="@+id/action_vapl_modify_recommended_tunes"
+            android:icon="@mipmap/ic_action_location_found_dark"
+            android:title="@string/action_modify_recommended_tunes" />
+
+    </group>
+
+</menu>
