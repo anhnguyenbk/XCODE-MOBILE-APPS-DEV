@@ -21,8 +21,7 @@ import java.util.UUID;
  */
 public class AlarmActivity extends AppCompatActivity {
 
-    private MediaPlayer mediaPlayer;
-    private Intent mediaServiceIntent;
+    private int _returnCode = -1;
     private UUID _tuneId;
     private Boolean _isFadeIn;
     private Button btnTurnOff;
@@ -50,17 +49,10 @@ public class AlarmActivity extends AppCompatActivity {
             if (tune != null) {
                 if (tune.isRecommend()) {
                     MediaPlayerBackground.SoundPlayer(this, tune.get_resId());
-//                    mediaPlayer = MediaPlayer.create(this, tune.get_resId());
-//                    mediaServiceIntent = new Intent(this, MediaService.class);
                } else {
                     Uri uri = Uri.parse(tune.get_path());
                     MediaPlayerBackground.SoundPlayer(this, uri);
-//                    mediaPlayer = MediaPlayer.create(this, uri);
-//                    mediaServiceIntent = new Intent(this, MediaService.class);
                 }
-//                mediaPlayer.start();
-//                mediaPlayer.setLooping(true);
-//                startService(mediaServiceIntent);
             }
 
             if (_isFadeIn) {
@@ -76,11 +68,12 @@ public class AlarmActivity extends AppCompatActivity {
 //                    // after release, we cannot test isPlaying
 //                    mediaPlayer = null;
 //                }
+                _returnCode = 0;
                 Intent i = new Intent();
                 i.setClassName("com.xcode.mobile.smilealarm", "com.xcode.mobile.smilealarm.smiledetectmanager.FaceTrackerActivity");
-//                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                i.putExtra(ActivityConstant.VALUE_NAME_AP_TUNE_ID, _tuneId);
-//                i.putExtra(ActivityConstant.VALUE_NAME_AP_TUNE_ATTR, _isFadeIn);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                i.putExtra(ActivityConstant.VALUE_NAME_AP_TUNE_ID, _tuneId);
+                i.putExtra(ActivityConstant.VALUE_NAME_AP_TUNE_ATTR, _isFadeIn);
                 AlarmActivity.this.startActivity(i);
                 finish();
             }
@@ -90,6 +83,33 @@ public class AlarmActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         Toast.makeText(this, "You cannot stop it. Try more, guy. Never give up!", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onUserLeaveHint() {
+        super.onUserLeaveHint();
+        if (_returnCode != 0) {
+            FinishActivity();
+            Intent i = new Intent();
+            i.setClassName("com.xcode.mobile.smilealarm", "com.xcode.mobile.smilealarm.AlarmActivity");
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            i.setAction(ActivityConstant.ACTION_START_GAME);
+            i.putExtra(ActivityConstant.VALUE_NAME_AP_TUNE_ID, _tuneId);
+            i.putExtra(ActivityConstant.VALUE_NAME_AP_TUNE_ATTR, _isFadeIn);
+            i.putExtra(ActivityConstant.ACTION_RESTART, true);
+
+            startActivity(i);
+        }
+    }
+
+    private void FinishActivity() {
+        if (MediaPlayerBackground.player != null && MediaPlayerBackground.player.isPlaying()) {
+            MediaPlayerBackground.player.stop();
+            MediaPlayerBackground.player.release();
+            // after release, we cannot test isPlaying
+            MediaPlayerBackground.player = null;
+        }
+        finish();
     }
 
 }

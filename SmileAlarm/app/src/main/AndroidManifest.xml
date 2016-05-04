@@ -65,7 +65,7 @@
             android:name=".smiledetectmanager.FaceTrackerActivity"
             android:excludeFromRecents="true"
             android:label="@string/title_activity_smile"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".listmanager.ViewVFTCheckListActivity"
             android:label="@string/title_vft_checklist"

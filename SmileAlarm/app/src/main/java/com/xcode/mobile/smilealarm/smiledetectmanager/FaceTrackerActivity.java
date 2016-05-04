@@ -66,11 +66,6 @@ public final class FaceTrackerActivity extends AppCompatActivity {
     private CameraSourcePreview mPreview;
     private GraphicOverlay mGraphicOverlay;
 
-//    private MediaPlayer mediaPlayer;
-//    private UUID _tuneId;
-//    private Boolean _isFadeIn;
-
-
     private static final int RC_HANDLE_GMS = 9001;
     // permission request codes need to be < 256
     private static final int RC_HANDLE_CAMERA_PERM = 2;
@@ -96,30 +91,6 @@ public final class FaceTrackerActivity extends AppCompatActivity {
         } else {
             requestCameraPermission();
         }
-
-//        // Setup Ringtone
-//        Intent _keyValue = getIntent();
-//        _tuneId = (UUID) _keyValue.getExtras().getSerializable(ActivityConstant.VALUE_NAME_AP_TUNE_ID);
-//        _isFadeIn = _keyValue.getBooleanExtra(ActivityConstant.VALUE_NAME_AP_TUNE_ATTR, true);
-//
-//        Tune tune = null;
-//        if (_tuneId != null)
-//            tune = RecommendedTunesHandler.getInstance().getTuneFromRecommendList(_tuneId);
-//
-//        if (tune != null) {
-//            if (tune.isRecommend()) {
-//                mediaPlayer = MediaPlayer.create(this, tune.get_resId());
-//            } else {
-//                Uri uri = Uri.parse(tune.get_path());
-//                mediaPlayer = MediaPlayer.create(this, uri);
-//            }
-//            mediaPlayer.start();
-//            mediaPlayer.setLooping(true);
-//        }
-//
-//        if (_isFadeIn) {
-//        }
-
     }
 
     /**
@@ -184,7 +155,7 @@ public final class FaceTrackerActivity extends AppCompatActivity {
 
         mCameraSource = new CameraSource.Builder(context, detector)
                 .setRequestedPreviewSize(640, 480)
-                .setFacing(CameraSource.CAMERA_FACING_BACK)
+                .setFacing(CameraSource.CAMERA_FACING_FRONT)
                 .setRequestedFps(30.0f)
                 .build();
     }
