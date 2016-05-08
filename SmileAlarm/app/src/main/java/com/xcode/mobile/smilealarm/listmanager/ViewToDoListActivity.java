@@ -28,7 +28,7 @@ import com.xcode.mobile.smilealarm.R;
 import com.xcode.mobile.smilealarm.ViewHelper;
 import com.xcode.mobile.smilealarm.weathermanager.WeatherHandler;
 
-public class ViewToDoListActivity extends AppCompatActivity  {
+public class ViewToDoListActivity extends AppCompatActivity implements ConnectionCallbacks, OnConnectionFailedListener {
 
     private static final String TAG = "ToDoList";
 
@@ -86,8 +86,8 @@ public class ViewToDoListActivity extends AppCompatActivity  {
             }
         });
 
-        //buildGoogleApiClient();
-        asyncTask.execute("10.77515", "106.66040");
+        buildGoogleApiClient();
+
     }
 
     private void loadTimeDate() {
@@ -142,69 +142,70 @@ public class ViewToDoListActivity extends AppCompatActivity  {
         mDate.setText(today.get(Calendar.DATE) + " , " + month + " " + today.get(Calendar.YEAR));
     }
 
-//    protected synchronized void buildGoogleApiClient() {
-//        mGoogleApiClient = new GoogleApiClient.Builder(this)
-//                .addConnectionCallbacks(this)
-//                .addOnConnectionFailedListener(this)
-//                .addApi(LocationServices.API)
-//                .build();
-//    }
+    protected synchronized void buildGoogleApiClient() {
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .addApi(LocationServices.API)
+                .build();
+    }
 
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//        mGoogleApiClient.connect();
-//    }
-//
-//    @Override
-//    protected void onStop() {
-//        super.onStop();
-//        if (mGoogleApiClient.isConnected()) {
-//            mGoogleApiClient.disconnect();
-//        }
-//    }
-//
-//    /**
-//     * Runs when a GoogleApiClient object successfully connects.
-//     */
-//    @Override
-//    public void onConnected(Bundle connectionHint) {
-//        // Provides a simple way of getting a device's location and is well suited for
-//        // applications that do not require a fine-grained location and that do not need location
-//        // updates. Gets the best and most recent location currently available, which may be null
-//        // in rare cases when a location is not available.
-//        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-//            // TODO: Consider calling
-//            //    ActivityCompat#requestPermissions
-//            // here to request the missing permissions, and then overriding
-//            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-//            //                                          int[] grantResults)
-//            // to handle the case where the user grants the permission. See the documentation
-//            // for ActivityCompat#requestPermissions for more details.
-//            return;
-//        }
-//        mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
-//        if (mLastLocation != null) {
-//            asyncTask.execute(String.valueOf(mLastLocation.getLatitude()), String.valueOf(mLastLocation.getLongitude())); //  asyncTask.execute("Latitude", "Longitude")
-//        } else {
-//            Log.i(TAG, "Location is not found");
-//        }
-//    }
-//
-//    @Override
-//    public void onConnectionSuspended(int cause) {
-//        // The connection to Google Play services was lost for some reason. We call connect() to
-//        // attempt to re-establish the connection.
-//        Log.i(TAG, "Connection suspended");
-//        mGoogleApiClient.connect();
-//    }
-//
-//    @Override
-//    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-//        // Refer to the javadoc for ConnectionResult to see what error codes might be returned in
-//        // onConnectionFailed.
-//        Log.i(TAG, "Connection failed: ConnectionResult.getErrorCode() = " + connectionResult.getErrorCode());
-//    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mGoogleApiClient.connect();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (mGoogleApiClient.isConnected()) {
+            mGoogleApiClient.disconnect();
+        }
+    }
+
+    /**
+     * Runs when a GoogleApiClient object successfully connects.
+     */
+    @Override
+    public void onConnected(Bundle connectionHint) {
+        // Provides a simple way of getting a device's location and is well suited for
+        // applications that do not require a fine-grained location and that do not need location
+        // updates. Gets the best and most recent location currently available, which may be null
+        // in rare cases when a location is not available.
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+        if (mLastLocation != null) {
+            asyncTask.execute(String.valueOf(mLastLocation.getLatitude()), String.valueOf(mLastLocation.getLongitude())); //  asyncTask.execute("Latitude", "Longitude")
+        } else {
+            asyncTask.execute("10.77515", "106.66040");
+            Log.i(TAG, "Location is not found");
+        }
+    }
+
+    @Override
+    public void onConnectionSuspended(int cause) {
+        // The connection to Google Play services was lost for some reason. We call connect() to
+        // attempt to re-establish the connection.
+        Log.i(TAG, "Connection suspended");
+        mGoogleApiClient.connect();
+    }
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+        // Refer to the javadoc for ConnectionResult to see what error codes might be returned in
+        // onConnectionFailed.
+        Log.i(TAG, "Connection failed: ConnectionResult.getErrorCode() = " + connectionResult.getErrorCode());
+    }
 
     public void onBackPressed() {
         finish();

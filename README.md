@@ -15,3 +15,7 @@ Danh sách tính năng chính của ứng dụng SMILE ALARM
 3. Ứng dụng còn có dự báo thời tiết trong ngày, đưa ra lời khuyên trước khi ngủ  và nhắc nhở những việc bạn dự định làm trong ngày.
 
 Thật thú vị đúng không, hãy chờ đợi chúng tôi mang đến sự khác biệt.
+
+Yêu cầu:
+- Android 4.x trở lên
+- Để xem dự báo thời tiết cần kết nối Internet
